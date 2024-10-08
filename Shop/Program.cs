@@ -39,24 +39,29 @@ internal class Program
             Console.WriteLine("4) Wyjść");
             Console.WriteLine("=============================================================");
             int.TryParse(Console.ReadLine(), out int choice);
-            choice -= 1;
+            
             switch (choice)
             {
-                case 0:
+                case 1:
                     moneyOriented.ShopBuy(persons[0], personService, items, itemService, inventorypl);
                     break;
-                case 1:
+                case 2:
                     moneyOriented.ShopSell(persons[0], personService, items, itemService, inventorypl, inventory);
                     break;
-                case 2:
+                case 3:
                     inventory.ShowALL();
                     Console.WriteLine("=============================================================");
                     Console.WriteLine("If you want to sort items by its type use Comand !T. If you want to sort items by Name ust !N");
                     Console.WriteLine("=============================================================");
                     comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
                     break;
-                case 3:
+                case 4:
                     Shop = false;
+                    System.Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Wybierz jedną z opcji");
+                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
                     break;
             }
         }
