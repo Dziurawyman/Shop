@@ -63,6 +63,10 @@ internal class Program
                     Console.WriteLine("Wybierz jedną z opcji");
                     comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
                     break;
+                default:
+                    Console.WriteLine("Wybierz jedną z opcji");
+                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
+                    break;
             }
         }
 
