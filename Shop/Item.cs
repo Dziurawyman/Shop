@@ -15,6 +15,8 @@ namespace Shop
         // Właściwość Name przechowuje nazwę przedmiotu.
         public string Name { get; set; }
 
+        public string Type {  get; set; }
+
         // Właściwość Quantity określa ilość danego przedmiotu dostępnego w sklepie.
         public int Quantity { get; set; }
 

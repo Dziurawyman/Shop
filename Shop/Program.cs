@@ -6,7 +6,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        
+        Comands comands = new Comands();
         ItemService itemService = new ItemService();
         MoneyOriented moneyOriented = new MoneyOriented();
         PersonService personService = new PersonService();
@@ -22,12 +22,12 @@ internal class Program
         itemService.AddNewItem("Beer", 10, 1);
         itemService.AddNewItem("Bun", 15, 1);
 
-        itemService.AddNewItemToPlayer(null, "Brain", 20.50, 1, persons[0], inventory);
-        itemService.AddNewItemToPlayer(null, "stick", 24.60, 1, persons[0], inventory);
-        itemService.AddNewItemToPlayer(null, "Beer", 10, 1, persons[0], inventory);
-        itemService.AddNewItemToPlayer(null, "Bun", 15, 1, persons[0], inventory);
+        itemService.AddNewItemToPlayer(null, "Brain", 20.50, "HumanPart", 1, persons[0], inventory);
+        itemService.AddNewItemToPlayer(null, "stick", 24.60,"Part", 1, persons[0], inventory);
+        itemService.AddNewItemToPlayer(null, "Beer", 10, "Food", 1, persons[0], inventory);
+        itemService.AddNewItemToPlayer(null, "Bun", 15, "Food", 1, persons[0], inventory);
 
-
+        
         bool Shop = true;
         while (Shop)
         {
@@ -50,6 +50,10 @@ internal class Program
                     break;
                 case 2:
                     inventory.ShowALL();
+                    Console.WriteLine("=============================================================");
+                    Console.WriteLine("If you want to sort items by its type use Comand !T. If you want to sort items by Name ust !N");
+                    Console.WriteLine("=============================================================");
+                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
                     break;
                 case 3:
                     Shop = false;

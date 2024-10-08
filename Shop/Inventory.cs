@@ -42,6 +42,28 @@ namespace Shop
             }
         }
 
+        public void SortBy(String Type)
+        {
+            foreach( Item item in inventory)
+            {
+                if(item.Type == Type)
+                {
+                    Console.WriteLine($"Name:{item.Name}, Price:{item.Price}, Type:{item.Type}, Quantity{item.Quantity}");
+                }
+            }
+        }
+
+        public void SortName(String Name)
+        {
+            foreach (Item item in inventory)
+            {
+                if (item.Name.ToUpper() == Name.ToUpper())
+                {
+                    Console.WriteLine($"Name:{item.Name}, Price:{item.Price}, Type:{item.Type}, Quantity{item.Quantity}");
+                }
+            }
+        }
+
     }
 }
 

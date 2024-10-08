@@ -23,7 +23,7 @@
             }
 
         // Metoda dodaje nowy przedmiot do inwentarza gracza.
-        public void AddNewItemToPlayer(Item IfOldItem, string name, double price, int quantity, Person person, Inventory inventory)
+        public void AddNewItemToPlayer(Item IfOldItem, string name, double price, string type, int quantity, Person person, Inventory inventory)
         {
             Item item;
 
@@ -34,6 +34,7 @@
                 {
                     Id = inventory.GetInventory().Count + 1,
                     Name = IfOldItem.Name,
+                    Type = IfOldItem.Type,
                     Price = IfOldItem.Price,
                     Quantity = IfOldItem.Quantity,
                 };
@@ -45,6 +46,7 @@
                 {
                     Id = inventory.GetInventory().Count + 1,
                     Name = name.ToLower(),
+                    Type = type,
                     Price = price,
                     Quantity = quantity
                 };
@@ -70,7 +72,7 @@
                     if (item != null)
                     {
                         // Wyświetlenie szczegółów przedmiotu.
-                        Console.WriteLine($"Id: {item.Id}, Name: {item.Name}, Price: {item.Price}, Quantity: {item.Quantity}.");
+                        Console.WriteLine($"Id: {item.Id}, Name: {item.Name},Type: {item.Type} Price: {item.Price}, Quantity: {item.Quantity}.");
                     }
                     else
                     {
@@ -90,8 +92,8 @@
             {
                 foreach (Item item in items)
                 {
-                    // Wyświetlenie szczegółów każdego przedmiotu.
-                    Console.WriteLine($"Id: {item.Id}, Name: {item.Name}, Price: {item.Price}, Quantity: {item.Quantity}.");
+                // Wyświetlenie szczegółów każdego przedmiotu.
+                PrintItem(item);
                 }
             }
 
