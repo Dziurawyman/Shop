@@ -11,11 +11,13 @@ internal class Program
         MoneyOriented moneyOriented = new MoneyOriented();
         PersonService personService = new PersonService();
         personService.AddPerson();
+        
         Inventory inventory = new Inventory();
         List<Item> items = itemService.GetItems();
         List<Person> persons = personService.GetPerson();
         List<Item> inventorypl = inventory.GetInventory();
 
+        Person person = persons[0];
 
         itemService.AddNewItem("Brain",50,1);
         itemService.AddNewItem("stick", 24.60, 1);
@@ -53,7 +55,7 @@ internal class Program
                     Console.WriteLine("=============================================================");
                     Console.WriteLine("If you want to sort items by its type use Comand !T. If you want to sort items by Name ust !N");
                     Console.WriteLine("=============================================================");
-                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
+                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService,person);
                     break;
                 case 4:
                     Shop = false;
@@ -61,7 +63,7 @@ internal class Program
                     break;
                 default:
                     Console.WriteLine("Wybierz jedną z opcji");
-                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService);
+                    comands.CommandLine(Console.ReadLine(), inventory, inventorypl, itemService, items, moneyOriented, personService,person);
                     break;
                
             }

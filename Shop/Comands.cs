@@ -8,7 +8,7 @@ namespace Shop
 {
     internal class Comands
     {
-        public void CommandLine(String text, Inventory inventory, List<Item> inventoryList, ItemService itemService, List<Item> items, MoneyOriented moneyOriented, PersonService personService)
+        public void CommandLine(String text, Inventory inventory, List<Item> inventoryList, ItemService itemService, List<Item> items, MoneyOriented moneyOriented, PersonService personService,Person person)
         {
             text = text.ToUpper();
             if (text == "!T")
@@ -18,6 +18,14 @@ namespace Shop
             if (text == "!N")
             {
                 NComand(inventory);
+            }
+            if (text == "!ADDMONEY")
+            {
+                CashAddComand(person);
+            }
+            if (text == "!REMOVEMONEY")
+            {
+                CashRemoveComand(person);
             }
             else
             {
@@ -38,6 +46,20 @@ namespace Shop
             String Chosen_Name = Console.ReadLine();
             inventory.SortName(Chosen_Name);
         }
+
+        public void CashAddComand(Person person)
+        {
+            double.TryParse(Console.ReadLine(), out double moneyamount);
+            person.Money += moneyamount;
+        }
+
+        public void CashRemoveComand(Person person)
+        {
+
+            double.TryParse(Console.ReadLine(), out double moneyamount);
+            person.Money -= moneyamount;
+        }
+
     }
 
     
